@@ -23,6 +23,7 @@
 #define MAX_NOMBRE 35
 #define MAX_DIR 50
 #define MAX_EMPLEADOS 30
+#define ANIO_ACTUAL 2025
 
 typedef struct {
     int dia;
@@ -48,13 +49,15 @@ typedef struct {
 } T_Empleado;
 
 void menu() {
+    printf("---------------------------------------\n");
     printf("1) Ingresar Empleado.\n");
     printf("2) Mostrar por Nombre y Apellido.\n");
     printf("3) Mostrar por Legajo.\n");
     printf("4) Mostrar por Edad.\n");
     printf("5) Mostrar por Antiguedad.\n");
     printf("5) Mostrar por Localidad.\n");
-    printf("6) SALIR.\n")
+    printf("6) SALIR.\n");
+    printf("---------------------------------------\n");
 }
 
 void ingreso_empleados(T_Empleado vec[MAX_EMPLEADOS], int *ML) {
@@ -108,6 +111,81 @@ void ingreso_empleados(T_Empleado vec[MAX_EMPLEADOS], int *ML) {
         printf("Desea ingresar otro empleado? (0 para terminar): ");
         scanf("%d", &num);
     }
+}
+
+void ordenar_nombre(T_Empleado vec[MAX_EMPLEADOS], int ML) {
+    int i, j;
+    T_Empleado aux;
+
+    for (i = 1; i < ML; i++) {
+        for (j = 0;  j < ML - i; j++) {
+            if (strcmp(vec[j].nombre, vec[j + 1].nombre) > 0) {
+                aux = vec[j];
+                vec[j] = vec[j + 1];
+                vec[j + 1] = aux;
+            }
+        }
+    }
+}
+
+void ordenar_legajo(T_Empleado vec[MAX_EMPLEADOS], int ML) {
+    int i, j;
+    T_Empleado aux;
+
+    for (i = 1; i < ML; i++) {
+        for (j = 0;  j < ML - i; j++) {
+            if (vec[j].legajo > vec[j + 1].legajo) {
+                aux = vec[j];
+                vec[j] = vec[j + 1];
+                vec[j + 1] = aux;
+            }
+        }
+    }
+}
+
+void ordenar_edad(T_Empleado vec[MAX_EMPLEADOS], int ML) {
+    int i, j;
+    T_Empleado aux;
+
+    for (i = 1; i < ML; i++) {
+        for (j = 0;  j < ML - i; j++) {
+            if (vec[j].fecha_nacimiento.anio > vec[j + 1].fecha_nacimiento.anio) {
+                aux = vec[j];
+                vec[j] = vec[j + 1];
+                vec[j + 1] = aux;
+            }
+        }
+    }
+}
+
+void ordenar_antiguiedad(T_Empleado vec[MAX_EMPLEADOS], int ML) {
+    int i, j;
+    T_Empleado aux;
+
+    for (i = 1; i < ML; i++) {
+        for (j = 0;  j < ML - i; j++) {
+            if (vec[j].fecha_ingreso.anio > vec[j + 1].fecha_ingreso.anio) {
+                aux = vec[j];
+                vec[j] = vec[j + 1];
+                vec[j + 1] = aux;
+            }
+        }
+    }
+}
+
+void ordenar_localidad(T_Empleado vec[MAX_EMPLEADOS], int ML) {
+    int i, j;
+    T_Empleado aux;
+
+    for (i = 1; i < ML; i++) {
+        for (j = 0;  j < ML - i; j++) {
+            if (strcmp(vec[j].direccion.localidad, vec[j + 1].direccion.localidad) > 0) {
+                aux = vec[j];
+                vec[j] = vec[j + 1];
+                vec[j + 1] = aux;
+            }
+        }
+    }   
 }
 
 int main() {
