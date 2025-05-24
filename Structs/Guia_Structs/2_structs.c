@@ -48,16 +48,18 @@ typedef struct {
     T_Fecha fecha_ingreso;
 } T_Empleado;
 
-void menu() {
+int menu(int *opc) {
     printf("---------------------------------------\n");
     printf("1) Ingresar Empleado.\n");
     printf("2) Mostrar por Nombre y Apellido.\n");
     printf("3) Mostrar por Legajo.\n");
     printf("4) Mostrar por Edad.\n");
     printf("5) Mostrar por Antiguedad.\n");
-    printf("5) Mostrar por Localidad.\n");
-    printf("6) SALIR.\n");
+    printf("6) Mostrar por Localidad.\n");
+    printf("7) SALIR.\n");
     printf("---------------------------------------\n");
+    printf("Seleccion una opcion: ");
+    scanf("%d", opc);
 }
 
 void ingreso_empleados(T_Empleado vec[MAX_EMPLEADOS], int *ML) {
@@ -68,23 +70,39 @@ void ingreso_empleados(T_Empleado vec[MAX_EMPLEADOS], int *ML) {
 
         printf("---------------------------------------\n");
         printf("NOMBRE, APELLIDO y LEGAJO.\n");
+
         printf("Apellido: ");
+        while (getchar() != '\n')
         fgets(vec[*ML].apellido, MAX_NOMBRE, stdin);
+        vec[*ML].apellido[strcspn(vec[*ML].apellido, "\n")] = '\0';
+
         printf("Nombre: ");
         fgets(vec[*ML].nombre, MAX_NOMBRE, stdin);
+        vec[*ML].nombre[strcspn(vec[*ML].nombre, "\n")] = '\0';
+
         printf("Legajo: ");
         scanf("%d", &vec[*ML].legajo);
 
         printf("---------------------------------------\n");
         printf("DIRECCION.\n");
+
         printf("Calle: ");
+        while (getchar() != '\n')
         fgets(vec[*ML].direccion.calle, MAX_DIR, stdin);
+        vec[*ML].direccion.calle[strcspn(vec[*ML].direccion.calle, "\n")] = '\0';
+
         printf("Altura: ");
         scanf("%d", &vec[*ML].direccion.altura);
+
         printf("Localidad: ");
+        while (getchar() != '\n')
         fgets(vec[*ML].direccion.localidad, MAX_DIR, stdin);
+        vec[*ML].direccion.localidad[strcspn(vec[*ML].direccion.localidad, "\n")] = '\0';
+
         printf("Pronvicia: ");
         fgets(vec[*ML].direccion.provincia, MAX_DIR, stdin);
+        vec[*ML].direccion.provincia[strcspn(vec[*ML].direccion.provincia, "\n")] = '\0';
+
         printf("Codigo Postal: ");
         scanf("%d", &vec[*ML].direccion.cp);
 
@@ -158,7 +176,7 @@ void ordenar_edad(T_Empleado vec[MAX_EMPLEADOS], int ML) {
     }
 }
 
-void ordenar_antiguiedad(T_Empleado vec[MAX_EMPLEADOS], int ML) {
+void ordenar_antiguedad(T_Empleado vec[MAX_EMPLEADOS], int ML) {
     int i, j;
     T_Empleado aux;
 
@@ -188,11 +206,80 @@ void ordenar_localidad(T_Empleado vec[MAX_EMPLEADOS], int ML) {
     }   
 }
 
+void mostrar_empleados(T_Empleado vec[MAX_EMPLEADOS], int ML) {
+    int i;
+
+    for (i = 0; i < ML; i++) {
+        printf("---------------------------------------\n");
+        printf("NOMBRE, APELLIDO y LEGAJO.\n");
+        printf("Apellido: %s\n", vec[i].apellido);
+        printf("Nombre: %s\n", vec[i].nombre);
+        printf("Legajo: %d\n", vec[i].legajo);
+
+        printf("---------------------------------------\n");
+        printf("DIRECCION.\n");
+        printf("Calle: %s\n", vec[i].direccion.calle);
+        printf("Altura: %d\n", vec[i].direccion.altura);
+        printf("Localidad: %s\n", vec[i].direccion.localidad);
+        printf("Pronvicia: %s\n", vec[i].direccion.provincia);
+        printf("Codigo Postal: %d\n", vec[i].direccion.cp);
+
+        printf("---------------------------------------\n");
+        printf("FECHA NACIMIENTO.\n");
+        printf("Dia: %d\n", vec[i].fecha_nacimiento.dia);
+        printf("Mes: %d\n", vec[i].fecha_nacimiento.mes);
+        printf("Anio: %d\n", vec[i].fecha_nacimiento.anio);
+
+        printf("---------------------------------------\n");
+        printf("FECHA NACIMIENTO.\n");
+        printf("Dia: %d\n", vec[i].fecha_ingreso.dia);
+        printf("Mes: %d\n", vec[i].fecha_ingreso.mes);
+        printf("Anio: %d\n", vec[i].fecha_ingreso.anio);
+    }
+}
+
 int main() {
     T_Empleado empleados[30];
-    int ml = 0;
+    int ml = 0, opcion;
 
-    ingreso_empleados(empleados, &ml);
-    
+    menu(&opcion);
+    while (opcion != 7) {
+        switch (opcion) {
+            case 1:
+                ingreso_empleados(empleados, &ml);
+                break;
+            
+            case 2:
+                ordenar_nombre(empleados, ml);
+                mostrar_empleados(empleados, ml);
+                break;
+            case 3:
+                ordenar_legajo(empleados, ml);
+                mostrar_empleados(empleados, ml);
+                break;
+            case 4:
+                ordenar_edad(empleados, ml);
+                mostrar_empleados(empleados, ml);
+                break;
+            case 5:
+                ordenar_antiguedad(empleados, ml);
+                mostrar_empleados(empleados, ml);
+                break;
+            case 6:
+                ordenar_localidad(empleados, ml);
+                mostrar_empleados(empleados, ml);
+                break;
+            case 7:
+                printf("Nos vemos.\n");
+                break;
+
+            default:
+                printf("Error, opcion invalida");
+                break;
+            }
+        
+        menu(&opcion);
+    }
+
     return 0;
 }
