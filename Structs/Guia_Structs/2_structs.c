@@ -250,42 +250,53 @@ int main() {
                 break;
             
             case 2:
-                if (ml == 0)
+                if (ml == 0) {
                     printf("Error, debe ingrear minimo un empleado.\n");
-                ordenar_nombre(empleados, ml);
-                mostrar_empleados(empleados, ml);
+                }
+                else {
+                    ordenar_nombre(empleados, ml);
+                    mostrar_empleados(empleados, ml);
+                }
                 break;
 
             case 3:
-                if (ml == 0)
+                if (ml == 0) {
                     printf("Error, debe ingrear minimo un empleado.\n");
-                ordenar_legajo(empleados, ml);
-                mostrar_empleados(empleados, ml);
+                }
+                else {
+                    ordenar_legajo(empleados, ml);
+                    mostrar_empleados(empleados, ml);
+                }
                 break;
 
             case 4:
-                if (ml == 0)
+                if (ml == 0) {
                     printf("Error, debe ingrear minimo un empleado.\n");
-                ordenar_edad(empleados, ml);
-                mostrar_empleados(empleados, ml);
+                }
+                else {
+                    ordenar_edad(empleados, ml);
+                    mostrar_empleados(empleados, ml);
+                }
                 break;
 
             case 5:
-                if (ml == 0)
+                if (ml == 0) {
                     printf("Error, debe ingrear minimo un empleado.\n");
-                ordenar_antiguedad(empleados, ml);
-                mostrar_empleados(empleados, ml);
+                }
+                else {
+                    ordenar_antiguedad(empleados, ml);
+                    mostrar_empleados(empleados, ml);
+                }
                 break;
 
             case 6:
-                if (ml == 0)
+                if (ml == 0) {
                     printf("Error, debe ingrear minimo un empleado.\n");
-                ordenar_localidad(empleados, ml);
-                mostrar_empleados(empleados, ml);
-                break;
-
-            case 7:
-                printf("Nos vemos.\n");
+                }
+                else {
+                    ordenar_localidad(empleados, ml);
+                    mostrar_empleados(empleados, ml);
+                }
                 break;
 
             default:
@@ -295,6 +306,8 @@ int main() {
         
         menu(&opcion);
     }
+
+    printf("Nos vemos.\n");
 
     return 0;
 }
