@@ -1,0 +1,2 @@
+/*  Se tiene un listado de alumnos que consiste en número de padrón y 4 notas por alumno.
+Informar el mayor y el menor promedio registrado junto con el número de padrón del alumno, suponiendo que ambos son únicos. */
