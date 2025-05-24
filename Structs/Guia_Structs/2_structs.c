@@ -23,7 +23,6 @@
 #define MAX_NOMBRE 35
 #define MAX_DIR 50
 #define MAX_EMPLEADOS 30
-#define ANIO_ACTUAL 2025
 
 typedef struct {
     int dia;
