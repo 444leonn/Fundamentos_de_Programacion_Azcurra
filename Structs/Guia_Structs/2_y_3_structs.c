@@ -14,6 +14,9 @@
 * Se pide hacer un programa que almacene los datos de todos los empleados en una tabla en memoria y
 * que permita obtener un listado ordenado por pantalla según distintos ítems, como, por ejemplo, por Apellido y Nombre, por número de legajo, por edad, por antigüedad, por localidad.
 * Utilizar un esquema tipo menú.
+*
+* Dada la estructura de datos del problema anterior, escribir el algoritmo de búsqueda binaria para la búsqueda de un dato
+* correspondiente a los campos de Apellido, Nombre o número de legajo, a elección del usuario.
 */
 
 #include <stdio.h>
