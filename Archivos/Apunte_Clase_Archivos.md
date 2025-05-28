@@ -170,3 +170,162 @@ int main() {
 3. Verificar siempre operaciones de E/S
 4. Usar estructuras de tamaño fijo para consistencia
 5. Documentar el formato de los archivos binarios
+
+# Manejo de Archivos en C - Segunda Parte
+
+## Pasos para trabajar con archivos
+
+1. **Declaración del puntero a FILE**:
+```c
+FILE *archivo;  // Variable para manejar el archivo
+```
+
+2. **Apertura del archivo**:
+```c
+archivo = fopen("nombre_archivo", "modo");
+```
+
+### Modos de apertura principales:
+
+| Modo | Descripción |
+|------|-------------|
+| "r"  | Lectura (debe existir) |
+| "w"  | Escritura (crea o trunca) |
+| "a"  | Append (agrega al final) |
+| "r+" | Lectura/escritura (debe existir) |
+| "w+" | Lectura/escritura (crea o trunca) |
+| "a+" | Lectura/append (escribe al final) |
+
+Para archivos binarios, agregar "b" (ej: "rb", "wb+")
+
+3. **Verificación de apertura**:
+```c
+if (archivo == NULL) {
+    printf("Error al abrir el archivo\n");
+    exit(1);
+}
+```
+
+## Lectura de datos
+
+### Función fread:
+```c
+size_t fread(void *ptr, size_t size, size_t count, FILE *stream);
+```
+
+Ejemplo con estructura:
+```c
+typedef struct {
+    int id;
+    char nombre[50];
+    float precio;
+} Producto;
+
+Producto prod;
+
+// Leer un registro
+int leidos = fread(&prod, sizeof(Producto), 1, archivo);
+if (leidos != 1) {
+    // Manejar error o fin de archivo
+}
+```
+
+## Escritura de datos
+
+### Función fwrite:
+```c
+size_t fwrite(const void *ptr, size_t size, size_t count, FILE *stream);
+```
+
+Ejemplo:
+```c
+Producto nuevo = {1, "Laptop", 999.99};
+int escritos = fwrite(&nuevo, sizeof(Producto), 1, archivo);
+if (escritos != 1) {
+    // Manejar error de escritura
+}
+```
+
+## Control de fin de archivo
+
+### Función feof:
+```c
+while (!feof(archivo)) {
+    fread(&prod, sizeof(Producto), 1, archivo);
+    if (!feof(archivo)) {  // Verificar nuevamente después de leer
+        // Procesar registro
+    }
+}
+```
+
+## Cierre del archivo
+
+```c
+if (fclose(archivo) == EOF) {
+    printf("Error al cerrar el archivo\n");
+}
+```
+
+## Ejemplo completo
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct {
+    int id;
+    char nombre[50];
+    float precio;
+} Producto;
+
+int main() {
+    FILE *archivo;
+    Producto prod;
+    
+    // Escritura
+    archivo = fopen("productos.dat", "wb");
+    if (archivo == NULL) {
+        printf("Error al crear archivo\n");
+        return 1;
+    }
+    
+    Producto productos[] = {
+        {1, "Laptop", 999.99},
+        {2, "Mouse", 19.99},
+        {3, "Teclado", 49.99}
+    };
+    
+    for (int i = 0; i < 3; i++) {
+        fwrite(&productos[i], sizeof(Producto), 1, archivo);
+    }
+    fclose(archivo);
+    
+    // Lectura
+    archivo = fopen("productos.dat", "rb");
+    if (archivo == NULL) {
+        printf("Error al abrir archivo\n");
+        return 1;
+    }
+    
+    printf("Contenido del archivo:\n");
+    while (!feof(archivo)) {
+        if (fread(&prod, sizeof(Producto), 1, archivo) == 1) {
+            printf("ID: %d, Nombre: %s, Precio: %.2f\n", 
+                   prod.id, prod.nombre, prod.precio);
+        }
+    }
+    fclose(archivo);
+    
+    return 0;
+}
+```
+
+## Buenas prácticas
+
+1. **Verificar siempre** las operaciones de apertura, lectura, escritura y cierre
+2. **Manejar adecuadamente** el fin de archivo (feof)
+3. **Cerrar siempre** los archivos cuando ya no se necesiten
+4. **Evitar múltiples aperturas/cierres** innecesarios
+5. **Usar sizeof** para determinar tamaños de estructuras
+6. **Mantener abierto** el archivo mientras se realizan múltiples operaciones
+7. **Documentar** el formato de los archivos binarios
