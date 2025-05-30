@@ -29,15 +29,84 @@ typedef char str[MAX];
 typedef struct {
     int codigo_producto;
     float cant_stock;
-} listado_stock;
+} t_stock;
 
 typedef struct {
     int codigo_producto;
     str descripcion;
     float precio_unitario;
-} listado_productos;
+} t_producto;
 
 typedef struct {
     int codigo_producto;
     int cant_ventas;
-} listado_ventas;
+} t_venta;
+
+void calc_cant_ventas(t_producto vec_productos[MAX_TABLA], int ML_PROD, t_venta vec_ventas[MAX_TABLA], int ML_VENTAS, int vec_cant_ventas[MAX_TABLA]) {
+    int i, j, cant_vendida;
+
+    for (i = 0; i < ML_PROD; i++) {
+        cant_vendida = 0;
+
+        for (j = 0; j < ML_VENTAS; j++) {
+            if (vec_ventas[j].codigo_producto == vec_productos[i].codigo_producto) {
+                cant_vendida += vec_ventas[j].cant_ventas;
+            }
+        }
+        vec_cant_ventas[i] = cant_vendida;
+    }
+}
+
+void mostrar_ventas(t_producto vec_productos[MAX_TABLA], int ML_PROD, int vec_cant_ventas[MAX_TABLA]) {
+    int i;
+
+    printf("Cantidad de ventas por producto: \n");
+
+    for (i = 0; i < ML_PROD; i++) {
+        printf("%d  %s  %d\n", vec_productos[i].codigo_producto, vec_productos[i].descripcion, vec_cant_ventas[i]);
+    }
+}
+
+int main() {
+    int ml_stock, ml_productos, ml_ventas, ml_ventas_por_producto;
+    int ventas_por_producto[MAX_TABLA];
+
+    t_stock stock[MAX_TABLA] = {
+        {1001, 150},
+        {1002, 40},
+        {1003, 16},
+        {1004, 50}
+    };
+    ml_stock = 4;
+
+    t_producto productos[MAX_TABLA] = {
+        {1001, "Pan", 10.00},
+        {1002, "Fideos", 20.00},
+        {1003, "Leche", 5.00},
+        {1004, "Café", 8.00}
+    };
+    ml_productos = 4;
+
+
+    t_venta ventas[MAX_TABLA] = {
+        {1004, 7},
+        {1001, 8},
+        {1002, 20},
+        {1001, 3},
+        {1003, 1},
+        {1003, 5},
+        {1004, 3},
+        {1002, 20},
+        {1003, 10}
+    };
+    ml_ventas = 9;
+
+    ml_ventas_por_producto = ml_productos;
+    
+    // Uso una funcion con un vector auxiliar para almacenar la cantidad de ventas por producto.
+    calc_cant_ventas(productos, ml_productos, ventas, ml_ventas, ventas_por_producto);
+    mostrar_ventas(productos, ml_productos, ventas_por_producto);
+    printf("\n");
+    
+    return 0;
+}
