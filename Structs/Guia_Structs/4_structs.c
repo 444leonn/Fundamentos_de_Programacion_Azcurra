@@ -16,3 +16,28 @@
 *     b) Listar por pantalla el monto de venta por producto y el monto total.
 *     c) Listar por pantalla el stock actualizado por producto, eliminando de la misma aquellos productos sin existencia y generando una lista aparte de faltantes.
 */
+
+#include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
+
+#define MAX 200
+#define MAX_TABLA 100
+
+typedef char str[MAX];
+
+typedef struct {
+    int codigo_producto;
+    float cant_stock;
+} listado_stock;
+
+typedef struct {
+    int codigo_producto;
+    str descripcion;
+    float precio_unitario;
+} listado_productos;
+
+typedef struct {
+    int codigo_producto;
+    int cant_ventas;
+} listado_ventas;
