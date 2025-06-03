@@ -100,8 +100,6 @@ void mostrar_stock(t_stock vec_stock[MAX_TABLA], int ML_STOCK, t_producto vec_pr
         printf("%d %s %.2f\n", vec_stock[i].codigo_producto, vec_productos[i].descripcion, vec_stock[i].cant_stock);
 }
 
-void lista_faltantes(t_stock vec_stockp)
-
 int main() {
     int ml_stock, ml_productos, ml_ventas, ml_ventas_por_producto;
     int ventas_por_producto[MAX_TABLA];
