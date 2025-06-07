@@ -63,8 +63,6 @@ int main() {
     ordenar_legajo(alumnos, ml);
 
     mostar_alumnos(alumnos, ml);
-
-    
     
     return 0;    
 }
