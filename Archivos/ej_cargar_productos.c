@@ -18,7 +18,7 @@ void cargar_datos(FILE *arProductos) {
 
     while (rProducto.codigo != 0) {
         printf("Descripcion: ");
-        scanf("%30[^\n]s", rProducto.descripcion);
+        scanf("%s", rProducto.descripcion);
         fflush(stdin);
 
         printf("Cantidad en Stock: ");
