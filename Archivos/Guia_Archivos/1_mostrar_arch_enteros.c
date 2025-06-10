@@ -13,7 +13,7 @@ void mostrar_archivo_enteros(FILE *archivo) {
 
 int main() {
     FILE *arNumEnteros;
-    arNumEnteros = fopen("./num_factoriales.dat", "rb"); // Cambiar dentro de "" por el nombre del archivo
+    arNumEnteros = fopen("./.dat", "rb"); // Cambiar dentro de "" por el nombre del archivo
 
     if (arNumEnteros == NULL) {
         printf("\nNo se pude leer el archivo!\n");
