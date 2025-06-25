@@ -103,10 +103,10 @@ Libera una porcion de memoria previamente solicitada.
     ```
 
 **Descripcion:**
-    * Libera el bloque de memoria previamente reservada por una invocacion a malloc, calloc o realloc.
+* Libera el bloque de memoria previamente reservada por una invocacion a malloc, calloc o realloc.
 
 **Parametros:**
-    * **puntero**
+* **puntero**
 ### Funcion calloc()
 Solicita una porcion de memoria disponible, pero a diferencia de malloc(), esta lo inicializa en cero.
 
@@ -115,7 +115,7 @@ Solicita una porcion de memoria disponible, pero a diferencia de malloc(), esta 
     ```
 
 **Descripcion:**
-    - Reserva la memoria solicitada y retorna un puntero a dicha memoria. Todo el bloque 
+* Reserva la memoria solicitada y retorna un puntero a dicha memoria. Todo el bloque 
 ### Variables estaticas
 Se declaran como
     ```
