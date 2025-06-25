@@ -35,6 +35,7 @@ Por ejemplo, si un puntero guarda la direccion de memoria _AB1002_, debe saber q
 Esto se debe a dos razones:
 1. debe saber qué cantidad de celdas ocupará el dato que está en dicha dirección.
 2. debe saber cómo interpretar esos datos.
+
 Tenemos que recordar que cada celda está formada por bits pero esos bits pueden ser interpretados de distinta manera, por ejemplo, como enteros, como flotantes, como un carácter en código ASCII, etc. Por lo tanto, cuando definimos una variable de tipo entero debemos decir a qué tipo de variable apuntará.
 ### ¿Como se declara una Variable de tipo Puntero?
 Al igual que cualquier otra variable, indicando su tipo y un identificador de la variable, con la salvedad que luego de indicar el tipo se debe colocar el signo asterisco “*” que indica que es un puntero.
@@ -60,7 +61,6 @@ Por ejemplo, si declaramos un vector de 10 enteros
 el compilador reserva 10 lugares contiguos para almacenar los enteros.
 
 De estos 10 lugares solo guarda la dirección del primero en la variable que llamamos vec. Luego, es responsabilidad del programador no excederse de los 10 lugares pedidos.
-
 ## Como utilizar la Memoria Dinamica
 Vamos a utilizar la biblioteca _"standard library"_ incluyendola en nuestro programa con 
     ```
@@ -122,3 +122,8 @@ Se declaran como
     static int nombre;
     ```
 Y permiten preservar su valor a lo largo del programa mas alla de si la funcion en la que se declaran es cerrada. Lo cual permite guardar un valor dentro de una funcion y utilizarlo en distintas invocaciones de esa misma funcion.
+
+## Perdidad de Memoria (Memory Leak)
+1. Cuando la memoria asignada dinamicamente no se libera llamando a _free()_, se producen perdidas de memoria. Por lo que podria pasar que, queremos asignar una posicion de memoria, pero no podemos ya que la misma ya fue asignada y nunca fue liberada. Hay que asegurarse siempre que por cada asignacion de memoria dinamica que utilice _malloc()_ o _calloc()_, haya una llamada a _free()_ correspondiente.
+2. Cuando se pierde el seguimiento de los punteros que hacen referencia a la memoria asignada, puede suceder que la memoria no se libere. Por lo tanto, realice un seguimiento de todos los punteros y asegurese de que se libere la memoria.
+3. Cuando el programa finaliza abruptamente y la memoria asignada no se libera o si alguna parte del codigo impide la llamada a _free()_, pueden ocurrir perdidas de memoria.
