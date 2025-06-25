@@ -6,6 +6,18 @@ La cual se encuentra dividida en cuatro segmentos logicos:
 3. **Stack Segment**, (PILA): almacena el contenido de las variables locales de la invocacion de cada funcion, incluyendo las de la funcion principal _main_.
 4. **Extra Segment**, (HEAP): es la zona de la memoria dinamica.
 
+El **Code Segmente** u el **Data Segment** corresponden a la _memoria "estatica_", mientras que la PILA o **Stack Segment** y el HEAP o **  Extra Segment** corresponden a la _memoria "dinamica"_
+
+La _memoria estatica_ se caracteriza por:
+* Una vez asignada la memoria, su tamaño **NO** puede cambiar.
+* No podemos reutilizar la memoria no utilizada.
+* La ejecucion es mas rapida que la asignacion de memoria dinamica.
+
+La _memoria _dinamica_ se caracteria por:
+* Luego de asignada, su tamaño puede cambiar.
+* Permite reutilizar la memoria. El usuario puede asignar mas memoria cuando le sea necesario. Ademas de que puede liberar memoria.
+* La ejecucion es mas lenta que la asignacion de memoria estatica.
+
 Cada celda se corresponde a un Byte (unidad minima de memoria equivalente a 8 bits)
 
 Si queremos saber en qué dirección está una determinada variable debemos usar el operador &.
@@ -79,6 +91,12 @@ Solicita una porcion de memoria disponible, sin inicializar. (lo indica en canti
 **Descripcion:**
 * Reserva la memoria solicitada y retorna un puntero a dicha memoria (si no pude reservar la memoria, devuelve NULL).
 * No se realiza ninguna inicializacion de la misma.
+
+**Parametros:**
+* **size** - tamaño del bloque de memoria en bytes.
+
+**Valor de Retorno:**
+* retorna un puntero a la memoria reservada, o bien NULL si la solicitud falla.
 ### Funcion realloc()
 Reasigna una porcion de memoria ya disponible, por otra de un tamaño diferente.
 
@@ -106,7 +124,13 @@ Libera una porcion de memoria previamente solicitada.
 * Libera el bloque de memoria previamente reservada por una invocacion a malloc, calloc o realloc.
 
 **Parametros:**
-* **puntero**
+* **puntero** - puntero al bloque de memoria que se quiere liberar que fue previamente reservado por una invocación a malloc, calloc o realloc. Si un puntero NULL se pasa como argumento, no se lleva a cabo acción alguna.
+
+**Valor de Retorno:**
+* Esta funcion no retorna valor.
+
+**Aclaracion**
+En el caso que ptr haya sido liberado con free previamente, un comportamiento indefinido puede llevarse a cabo
 ### Funcion calloc()
 Solicita una porcion de memoria disponible, pero a diferencia de malloc(), esta lo inicializa en cero.
 
@@ -115,7 +139,14 @@ Solicita una porcion de memoria disponible, pero a diferencia de malloc(), esta 
     ```
 
 **Descripcion:**
-* Reserva la memoria solicitada y retorna un puntero a dicha memoria. Todo el bloque 
+* Reserva la memoria solicitada y retorna un puntero a dicha memoria. Todo el bloque es inicializado a cero.
+
+**Parametros:**
+* **nmems** − cantidad de elementos para los cuales se quiere reservar.
+* **size** − tamaño de cada elemento en bytes.
+
+**Valor de Retorno**
+*  puntero a la memoria reservada, o bien NULL si la solicitud falla.
 ### Variables estaticas
 Se declaran como
     ```
