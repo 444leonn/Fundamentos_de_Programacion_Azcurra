@@ -38,7 +38,9 @@ Esto se debe a dos razones:
 Tenemos que recordar que cada celda está formada por bits pero esos bits pueden ser interpretados de distinta manera, por ejemplo, como enteros, como flotantes, como un carácter en código ASCII, etc. Por lo tanto, cuando definimos una variable de tipo entero debemos decir a qué tipo de variable apuntará.
 ### ¿Como se declara una Variable de tipo Puntero?
 Al igual que cualquier otra variable, indicando su tipo y un identificador de la variable, con la salvedad que luego de indicar el tipo se debe colocar el signo asterisco “*” que indica que es un puntero.
+
 **Ejemplos:**
+
     ```
     int * pi;
     char * pc;
@@ -55,7 +57,6 @@ Por ejemplo, si declaramos un vector de 10 enteros
     ```
     int vec[10];
     ```
-
 el compilador reserva 10 lugares contiguos para almacenar los enteros.
 
 De estos 10 lugares solo guarda la dirección del primero en la variable que llamamos vec. Luego, es responsabilidad del programador no excederse de los 10 lugares pedidos.
