@@ -39,7 +39,9 @@ Tenemos que recordar que cada celda está formada por bits pero esos bits pueden
 ### ¿Como se declara una Variable de tipo Puntero?
 Al igual que cualquier otra variable, indicando su tipo y un identificador de la variable, con la salvedad que luego de indicar el tipo se debe colocar el signo asterisco “*” que indica que es un puntero.
 
-**Ejemplos:** ```
+**Ejemplos:**
+
+    ```
     int * pi;
     char * pc;
     float * pf;
