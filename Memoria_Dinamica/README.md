@@ -4,7 +4,7 @@ La cual se encuentra dividida en cuatro segmentos logicos:
 1. **Code Segment**, (segmento de codigo): donde se localiza el codigo resultante de compilar nuestra aplicacion. Es decir, la algoritmia en codigo maquina.
 2. **Data Segment**, (segmento de datos): almacena el contenido de las variables defindas como externas (las globales) y las estaticas.
 3. **Stack Segment**, (PILA): almacena el contenido de las variables locales de la invocacion de cada funcion, incluyendo las de la funcion principal _main_.
-4. **Extra Segment**, (HEAP):   es la zona de la memoria dinamica.
+4. **Extra Segment**, (HEAP): es la zona de la memoria dinamica.
 
 Cada celda se corresponde a un Byte (unidad minima de memoria equivalente a 8 bits)
 
@@ -60,3 +60,65 @@ Por ejemplo, si declaramos un vector de 10 enteros
 el compilador reserva 10 lugares contiguos para almacenar los enteros.
 
 De estos 10 lugares solo guarda la dirección del primero en la variable que llamamos vec. Luego, es responsabilidad del programador no excederse de los 10 lugares pedidos.
+
+## Como utilizar la Memoria Dinamica
+Vamos a utilizar la biblioteca _"standard library"_ incluyendola en nuestro programa con 
+    ```
+    #include <stdlib.h>
+    ```
+
+Esta biblioteca nos permite acceder a distintas funciones, las cuales nos dan la opcion de hacer distintas acciones con la memoria _HEAP_.
+### Funcion malloc()
+Solicita una porcion de memoria disponible, sin inicializar. (lo indica en cantidad de bytes).
+
+    ```
+    void *malloc(size_t size);
+    
+    ```
+
+**Descripcion:**
+* Reserva la memoria solicitada y retorna un puntero a dicha memoria (si no pude reservar la memoria, devuelve NULL).
+* No se realiza ninguna inicializacion de la misma.
+### Funcion realloc()
+Reasigna una porcion de memoria ya disponible, por otra de un tamaño diferente.
+
+    ```
+    void *realloc(void *puntero, size_t size);
+    ```
+
+**Descripcion:**
+* Intenta cambiar el tamaño del bloque de memoria señado por el _puntero_ y que fue asignado previamente con una llamada a _malloc()_ o _calloc()_.
+
+**Parametros:**
+* **puntero** - Puntero a un bloque de memoria previamente asignado con _malloc()_, _calloc()_ o _realloc()_ que se va a reasignar. Si es **NULL**, se asigna un nuevo bloque y la funcion devuelve un puntero al mismo.
+* **size** - Nuevo tamaño del bloque de memoria, en bytes. Si es 0 y puntero apunta a un bloque de memoria existente, el bloque de memoria señalado se desasigna y devuelve un puntero NULL.
+
+**Valor de Retorno**
+* Retorna un puntero a la nueva memoria reservada, o bien NULL si la solicitud falla.
+### Funcion free()
+Libera una porcion de memoria previamente solicitada.
+
+    ```
+    void free(void *puntero);
+    ```
+
+**Descripcion:**
+    * Libera el bloque de memoria previamente reservada por una invocacion a malloc, calloc o realloc.
+
+**Parametros:**
+    * **puntero**
+### Funcion calloc()
+Solicita una porcion de memoria disponible, pero a diferencia de malloc(), esta lo inicializa en cero.
+
+    ```
+    void *calloc(size_t nmemb, size_t size); // Cantidad de elementos de un determinado tamaño
+    ```
+
+**Descripcion:**
+    - Reserva la memoria solicitada y retorna un puntero a dicha memoria. Todo el bloque 
+### Variables estaticas
+Se declaran como
+    ```
+    static int nombre;
+    ```
+Y permiten preservar su valor a lo largo del programa mas alla de si la funcion en la que se declaran es cerrada. Lo cual permite guardar un valor dentro de una funcion y utilizarlo en distintas invocaciones de esa misma funcion.
