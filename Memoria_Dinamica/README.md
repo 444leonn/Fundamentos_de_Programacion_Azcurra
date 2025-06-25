@@ -127,3 +127,12 @@ Y permiten preservar su valor a lo largo del programa mas alla de si la funcion 
 1. Cuando la memoria asignada dinamicamente no se libera llamando a _free()_, se producen perdidas de memoria. Por lo que podria pasar que, queremos asignar una posicion de memoria, pero no podemos ya que la misma ya fue asignada y nunca fue liberada. Hay que asegurarse siempre que por cada asignacion de memoria dinamica que utilice _malloc()_ o _calloc()_, haya una llamada a _free()_ correspondiente.
 2. Cuando se pierde el seguimiento de los punteros que hacen referencia a la memoria asignada, puede suceder que la memoria no se libere. Por lo tanto, realice un seguimiento de todos los punteros y asegurese de que se libere la memoria.
 3. Cuando el programa finaliza abruptamente y la memoria asignada no se libera o si alguna parte del codigo impide la llamada a _free()_, pueden ocurrir perdidas de memoria.
+
+# Buenas Practicas
+* Utilizar el operador _sizeof()_ para determinar el tamaño de una estructura.
+* Cuando se utiliza _malloc()_, se debe validar que el puntero no sea NULL, y gestionar correctamente el caso.
+* Cuando la memoria que se asigna dinamicamente ya no es necesaria, utilizar _free()_ para devolverla inmediatamente al sistema.
+# Errores Comunes de Programacion
+* Liberar con _free()_ memoria que no ha sido asignada dinamicamente con _malloc()_ o _calloc()_.
+* Hacer referencia a memoria que ha sido liberada es un error.
+* Intentar liberar memoria que ya ha sido liberada previamente (hacer doble _free()_)
