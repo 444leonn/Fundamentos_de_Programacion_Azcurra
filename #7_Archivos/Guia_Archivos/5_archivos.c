@@ -25,7 +25,7 @@ void menu(int *opcion) {
     printf("3) Mostrar archivo ordenado.\n");
     printf("4) SALIR.\n");
     printf("------------------------------\n");
-    printf("Seleccione un opcion:  ");
+    printf("Seleccione una opcion:  ");
     scanf("%d", opcion);
     printf("\n");
 }
@@ -48,7 +48,7 @@ void cargar_archivo(FILE *archivo) {
         i++;
 
         getchar();
-        printf("Desar seguir cargando? (s/S = si, otro = no)  ");
+        printf("\nDesar seguir cargando? (s/S = si, otro = no)  ");
         cargar = getchar();
     }
 }
