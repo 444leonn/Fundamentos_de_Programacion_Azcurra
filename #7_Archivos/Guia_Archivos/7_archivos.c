@@ -8,8 +8,7 @@
 #include <string.h>
 
 void limpiar_archivo(FILE *archivo, FILE *archivo_copiar) {
-    char caracter_actual;
-    char caracter_anterior = '\0';
+    char caracter_actual, caracter_anterior = '\0';
 
     fread(&caracter_actual, sizeof(char), 1, archivo);
     while (!feof(archivo)) {
