@@ -170,7 +170,6 @@ int main() {
 3. Verificar siempre operaciones de E/S
 4. Usar estructuras de tamaño fijo para consistencia
 5. Documentar el formato de los archivos binarios
-<<<<<<< HEAD:Archivos/Apunte_Clase_Archivos.md
 
 # Manejo de Archivos en C - Segunda Parte
 
@@ -509,5 +508,3 @@ int main() {
 ```
 
 Este código genera un archivo CSV estructurado que puede abrirse directamente en Excel u otras aplicaciones de hojas de cálculo.
-=======
->>>>>>> origin/main:Archivos/README.md
