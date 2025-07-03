@@ -18,7 +18,7 @@
 
 #include <stdio.h>
 
-#define MAX 20
+#define MAX 4
 
 int fibonacci(int numero) {
   if (numero <= 1) 
@@ -29,7 +29,7 @@ int fibonacci(int numero) {
 int main() {
   int i;
 
-  printf("Sucesión de Fibonacci hasta n=%d: ", MAX);
+  printf("Sucesión de Fibonacci hasta n = %d: ", MAX);
   for (i=0; i < MAX; i++) 
     printf("%d ", fibonacci(i));
   
