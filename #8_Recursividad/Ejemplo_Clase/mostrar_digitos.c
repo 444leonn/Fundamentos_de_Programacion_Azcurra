@@ -4,8 +4,7 @@
 
 #include <stdio.h>
 	 
-void mostrar_digitos(int n) 
-{	  
+void mostrar_digitos(int n) {	  
 	if (n > 9) {
 		printf("%d ", n % 10);	
 		mostrar_digitos(n / 10);
@@ -15,8 +14,7 @@ void mostrar_digitos(int n)
 }  
 
 
-int main()
-{
+int main() {
 	mostrar_digitos(15);
 	printf("\n\n");
 	return 0;
