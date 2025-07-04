@@ -262,6 +262,47 @@ int sumar_digitos(int numero) {
 
 ### 3- Mostrar números pares entre 1 y X
 
+```c
+void mostrar_pares(int numero) {
+	if (numero <= 0) {
+		return;
+	}
+	else {
+		if (numero % 2 == 0) {
+			mostrar_pares(numero - 2);
+			printf("%d ", &numero);
+		}
+		else {
+			mostrar_pares(numero - 1);
+		}
+	}
+}
+```
+
 ### 4- Mostrar de a uno los dígitos de un Número
 
+```c
+void mostrar_digitos(int numero) {
+	if (numero <= 0) {
+		return;
+	}
+	else {
+		mostrar_digitos(numero / 10);
+		printf("%d ", numero % 10);
+}
+```
+
 ### 5- Una función recursiva en C que suma los elementos en las posiciones pares de un arreglo
+
+```c
+int suma_posiciones_pares(tvec arreglo, int ml) {
+    if (ml == 0)
+        return 0;
+    else {
+        if (ml % 2 == 0)
+            return arreglo[ml] + suma_posiciones_pares(arreglo, ml - 2);
+        else
+            return suma_posiciones_pares(arreglo, ml - 1);
+    }
+}
+```
