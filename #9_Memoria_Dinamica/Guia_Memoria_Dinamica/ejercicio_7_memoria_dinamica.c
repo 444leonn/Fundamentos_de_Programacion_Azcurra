@@ -14,12 +14,24 @@ typedef struct {
     char apellido[MAX_STR];
 } t_alumno;
 
+void ingresar_n(int *numero) {
+    printf("Ingrese la cantidad de alumnos:  ");
+    scanf("%d", numero);
+}
+
 t_alumno *crear_alumnos(int cantidad) {
     return malloc(cantidad * sizeof(t_alumno));
 }
 
 int main() {
-    t_alumno *crear_alumnos(int n);
+    int num_n;
+    t_alumno *alumnos;
+
+    ingresar_n(&num_n);
+
+    alumnos = crear_alumnos(num_n);
+    
+    free(alumnos);
     
     return 0;
 }
