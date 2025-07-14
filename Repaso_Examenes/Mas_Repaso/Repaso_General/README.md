@@ -45,7 +45,7 @@
 
 ### 3.1. Vector dinámico de enteros
 
-- Solicitar al usuario la cantidad N de enteros a cargar. Reservar memoria dinámica, cargar los valores y mostrarlos. Liberar la memoria.
+- Solicitar al usuario la cantidad N de enteros a cargar. Reservar memoria dinámica, cargar los valores y mostrarlos. Liberar la memoria al finalizar.
 
 ### 3.2. Tabla dinámica de registros de alumnos
 
@@ -54,20 +54,6 @@
 ### 3.3. Cadena dinámica
 
 - Solicitar al usuario una palabra, reservar memoria dinámica justa, copiar la palabra, mostrarla y liberar la memoria.
-
-### 3.4. Matriz dinámica de enteros
-
-- Solicitar al usuario cantidad de filas y columnas. Reservar memoria dinámica para una matriz de enteros, cargar valores y mostrarla. Liberar toda la memoria.
-
----
-
-## 4. Integrador
-
-### 4.1. Tabla dinámica con operaciones recursivas
-
-- Reservar memoria dinámica para N productos (struct como en 1.2).
-- Cargar los productos.
-- Implementar función recursiva para mostrar solo los productos cuyo stock sea menor a un valor ingresado por el usuario.
 
 ---
 
