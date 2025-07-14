@@ -1,8 +1,13 @@
+# Info
+
 En estas carpetas hay ejercicios que considero que son importantes a la hora de prepararse para el parcial.
 
-# Sobre los examenes
+## Sobre los examenes
+
 A la hora de resolver el examen se debe tener en cuenta las practicas de programacion dadas en la catedra, las cuales son muy importantes y se deben respetar para evitar riego a desaprobar un ejercicio.
-## Buenas prácticas
+
+### Buenas prácticas
+
 - Escribir codigo legible y entendible.
 - Utilizar nombres descriptivos de variables (evitar declarar numeros como "a", "b", "n").
 - Modularizar en distintas funciones.

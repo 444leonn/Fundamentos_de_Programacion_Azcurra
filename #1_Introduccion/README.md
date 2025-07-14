@@ -556,11 +556,10 @@ A continuacion se detallan los pasos para poder configurar Visual Studio Code pa
 
 1. Installar Visual Studio Code.
 2. Instalar la extesion C/C++ para VS Code.
-    
-    ![image_3](https://github.com/user-attachments/assets/77b22e7f-e1dc-42ed-b6ef-2f61a349ea32)
-    
 
-## Aseguranos que GCC este instalado o instalarlo.
+    ![image_3](https://github.com/user-attachments/assets/77b22e7f-e1dc-42ed-b6ef-2f61a349ea32)
+
+## Aseguranos que GCC este instalado o instalarlo
 
 Para eso debemos primero verificar si GCC esta ya instalado, para eso abrimos la terminal y ejecutamos el siguiente comando: `gcc -v` .
 
@@ -617,17 +616,16 @@ int main()
 
 1. Abrir el archivo `holamundo.c` para que sea el archivo activo.
 2. Presionar el boton con el simbolo de play y seleccionar la opcion de “Run C/C++ File”.
-    
+
     ![image_5](https://github.com/user-attachments/assets/955de5a6-ddb9-4782-9dba-5bd98c406e23)
 
 3. Elegir la opcion de “gcc Build and Debug Active Files” de la lista de los compiladores detectados.
-   
+
     ![image_6](https://github.com/user-attachments/assets/ab45f7e0-6bf5-47b6-af8e-cc2f46b20f9d)
 
 Luego de esto la salida por pantalla de nuestro programa va a aparecer en la **Terminal Integrada**.
 
 ![image_7](https://github.com/user-attachments/assets/02b1052c-26f6-4ad8-b32b-3a5f9faa2d52)
-
 
 La primera vez que ejecutemos el programa, la extension de C++ va a crear automaticamente el archivo `tasks.json` lo podemos encontrar en la carpeta `.vscode` dentro de nuestra carpeta de proyecto.
 
@@ -663,15 +661,15 @@ Para poder hacerlo debemos:
 
 1. Abrir nuestro archivo, en este caso `holamundo.c` .
 2. Opcional, poner un breakpoint clickeando en el margen o usando F9 estando sobre la linea que deseamos ponerlo. Podemos ver otra forma de hacerlo en el apartado de *“Personalizando Nuestro Debug”*
-    
+
     ![image_8](https://github.com/user-attachments/assets/82dc3eac-9bbd-45a2-9e47-afd0252ed1d6)
-    
+
 3. Desde el menu desplegable al lado del boton de play, seleccionamos la opcion de Debug, en lugar de  la opcion Run como usabamos antes.
-    
+
     ![image_9](https://github.com/user-attachments/assets/fe621bfd-ffeb-4422-aa0b-21dfaa234fdf)
-    
+
 4. Elegir el compilador de gcc.
-    
+
     ![image_10](https://github.com/user-attachments/assets/eb4af00e-c8c8-4d27-b19b-1622b1694c08)    
 
 ## Explorando las opciones de Debug
@@ -685,15 +683,15 @@ Ademas en la parte superior podemos ver un panel de control aparecer, que nos pe
 ![image_12](https://github.com/user-attachments/assets/4f9887bb-e96d-4774-a565-93b46855d443)
 
 1. Clickeando en la flechita curva nos permitir avanzar linea a linea por el codigo, por cada vez que nosotros apretemos sobre el boton.
-    
+
     ![image_13](https://github.com/user-attachments/assets/483cc2aa-e9c3-4828-9e67-1b15861815b4)
-    
+
 2. Si presionamos en la flecha que tiene un linea vertical a su lado izquierdo va a ejecutar el programa completo sin frenar en ningun momento.
-    
+
     ![image_14](https://github.com/user-attachments/assets/308272e0-d460-4ce0-8add-cdcc941edebd)
-    
+
 3. Podemos ver todos los cambios en el apartado de “Run an Debug”.
-   
+
     ![image_15](https://github.com/user-attachments/assets/45c67b56-4979-4e9e-8cf9-078903a3b855) 
 
 ## Personalizando Nuestro Debug

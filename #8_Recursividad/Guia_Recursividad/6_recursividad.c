@@ -23,7 +23,7 @@ int invertir(int numero) {
         return 1;
 
     printf("%d", numero % 10);
-    return invertir((numero - (numero % 10))/10);
+    return invertir(numero / 10);
 }
 
 int main() {
