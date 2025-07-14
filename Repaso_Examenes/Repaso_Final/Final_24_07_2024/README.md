@@ -21,7 +21,7 @@ Asumir que esta tabla tendra como maximo 100 registros y que **cabe en memoria**
 Escribir un main que:
 
   - Invoque a la funcion utilizando como arreglo la siguiente declaracion: `int vector[100] = {48, 23, 2, 5, 18};`
-  - Haga una llamada a la funcion `mostrar_estructura_dinamica` a la que se le debe pasar la estructura y la correspondiente cantidad de elemenetos a mostrar. No tenes que desarrollar esta funcion, solo utilizarla adecuadamente. Solo se puede invocar esta funcion si el puntero no es nulo.
+  - Haga una llamada a la funcion `mostrar_estructura_dinamica` a la que se le debe pasar la estructura y la correspondiente cantidad de elementos a mostrar. No tenes que desarrollar esta funcion, solo utilizarla adecuadamente. Solo se puede invocar esta funcion si el puntero no es nulo.
 
 ## Ejercicio 3
 
