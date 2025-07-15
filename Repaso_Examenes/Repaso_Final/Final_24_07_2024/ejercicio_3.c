@@ -6,19 +6,14 @@
 #include <stdio.h>
 
 int suma_elementos_pares(int vector[], int ML) {
-    if (ML < 0) {
+    if (ML <= 0) {
         return 0;
     }
-    else if (ML == 0) {
-        return vector[ML];
-    }
+    else if ((ML - 1) % 2 == 0) {
+            return vector[ML - 1] + suma_elementos_pares(vector, ML - 2);
+        }
     else {
-        if (ML % 2 == 0) {
-            return vector[ML] + suma_elementos_pares(vector, ML - 2);
-        }
-        else {
             return suma_elementos_pares(vector, ML - 1);
-        }
     }
 }
 
