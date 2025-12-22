@@ -9,8 +9,10 @@
 * Resultado: Dias: 14, Horas: 6, Minutos: 56, Segundos 7
 */
 
+#include <stdio.h>
+
 unsigned long long ingreso_dato() {
-    long num_segundos;
+    long num_segundos = -1;
 
     do
     {
@@ -24,6 +26,8 @@ unsigned long long ingreso_dato() {
             return num_segundos;
         }
     } while (num_segundos != 0);
+
+    return num_segundos;
 }
 
 void convertir_tiempo(unsigned long long segundos) {
